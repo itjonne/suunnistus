@@ -44,7 +44,7 @@ function onLocationError(e) {
 
 // wrap map.locate in a function    
 function locate() {
-  //map.locate({setView: true, maxZoom: 16});
+  map.locate({setView: false, maxZoom: 16});
 }
 
 
