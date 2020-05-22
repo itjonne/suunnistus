@@ -1,0 +1,111 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Suunnistuspeli</title>
+  <!-- Leaflet css -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+  <link rel="stylesheet" href="index.css">
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+</head>
+
+<body>
+  <div id="map"></div>
+  <div id="kunnat">
+    <label for="selector">Valitse kunta:</label>
+    <select name="kunnat" id="selector"></select>
+    <button id="lisaaRasti">Lisää uusi rasti</button>
+    <button id="tallennaRastitReitiksi">Tallenna rastit reitiksi</button>
+    <h2 id="userPosition"></h2>
+  </div>
+  <div id="container">
+    <div id="rasti-lista" class="rastit">
+      <h1 id="rastit-otsikko">Rastit</h1>
+      <div class="lista">
+        <ul id="rastitUl"></ul>
+      </div>
+    </div>
+    <div id="rasti-tiedot" class="rastit">
+      <h1>Reitin tiedot:</h1>
+      <div class="lista">
+        <ul id="rastitTiedotUl"></ul>
+      </div>
+    </div>
+    <div class="rastit">
+      <h1>Muokkaa rastia:</h1>
+      <div class="form">
+        <form action="#" method="post" id="rastit-form">
+          <div class="form-osio">
+            <label for="id">Rastin id:</label>
+            <input type="text" name="id" id="id">
+          </div>
+          <div class="form-osio">
+            <label for="lat">Rastin lat:</label>
+            <input type="text" name="lat" id="lat" readonly>
+          </div>
+          <div class="form-osio">
+            <label for="lon">Rastin lon:</label>
+            <input type="text" name="lon" id="lon" readonly>
+          </div>
+          <div class="form-osio">
+            <label for="tehtava">Rastin tehtava:</label>
+            <textarea rows="20" name="tehtava" id="tehtava" value=""></textarea>
+          </div>
+          <button type="submit">Tallenna</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
+
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDrPKsagURltn5-LI2ByoPuM0F3E99SmAU",
+      authDomain: "suunnistuspeli.firebaseapp.com",
+      databaseURL: "https://suunnistuspeli.firebaseio.com",
+      projectId: "suunnistuspeli",
+      storageBucket: "suunnistuspeli.appspot.com",
+      messagingSenderId: "133212115852",
+      appId: "1:133212115852:web:687492cda61d472ad83ca9",
+      measurementId: "G-ZH2LLK8QGR"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+  </script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.6.1/proj4.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4leaflet/1.0.2/proj4leaflet.js"></script>
+  <script src="mmlLayers.js"></script>
+  <script src="Suunnistus.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>

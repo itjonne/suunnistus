@@ -1,0 +1,47 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+#map {
+    width: 100%;
+    height: 40%; 
+}
+
+.rastit {
+    padding: 1em;
+    height: 100%;
+    width: 30%;
+}
+
+.lista {
+    width: 100%;
+    height: 100%;
+    border-style: solid;
+}
+
+.form {
+    width: 100%;
+    border-style: solid;
+    display: fit-content;
+}
+
+#container {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    box-sizing: border-box;
+}
+
+/* Change cursor when mousing over clickable layer */
+
+  /* Change cursor when over entire map */
+.leaflet-container {
+    cursor: crosshair;
+  }
