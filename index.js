@@ -18,6 +18,8 @@ window.onload = function () {
   otsikkoClickHandler();
   console.log(suunnistus.getRastit());
   console.log(suunnistus);
+  // call locate every 3 seconds... forever
+setInterval(locate, 3000);
 }
 
 // https://gis.stackexchange.com/questions/182068/getting-current-user-location-automatically-every-x-seconds-to-put-on-leaflet
@@ -42,11 +44,10 @@ function onLocationError(e) {
 
 // wrap map.locate in a function    
 function locate() {
-  map.locate({setView: true, maxZoom: 16});
+  //map.locate({setView: true, maxZoom: 16});
 }
 
-// call locate every 3 seconds... forever
-setInterval(locate, 3000);
+
 
 
 function otsikkoClickHandler() {
